@@ -36,8 +36,8 @@ function random_bg_color() {
 document.getElementById('change').onclick = random_bg_color , nextItem;
 
 document.getElementById('back').addEventListener(
-    'click', // we want to listen for a click
-    function () { // the e here is the event itself
+    'click',
+    function () {
         document.getElementById('page').style.background = prevItem();
     }
 );
