@@ -1,14 +1,5 @@
-
 let NewArr = [];
 let i = 0;
-function prevItem() {
-    if (i <= 0) {
-        i = NewArr.length
-    }
-    i = i - 1;
-    document.getElementById('next').disabled = false;
-    return NewArr[i];
-}
 function random_bg_color() {
     let x = Math.floor(Math.random() * 256);
     let y = Math.floor(Math.random() * 256);
@@ -20,6 +11,17 @@ function random_bg_color() {
     console.log(NewArr);
     i = i + 1;
     document.getElementById('back').disabled = false;
+
+    NewArr.splice(i, NewArr.length);
+console.log(NewArr);
+    return NewArr[i];
+}
+function prevItem() {
+    if (i <= 0) {
+        i = NewArr.length
+        }
+    i = i - 1;
+    document.getElementById('next').disabled = false;
     return NewArr[i];
 }
 function nextItem () {
@@ -32,8 +34,7 @@ function nextItem () {
         function() {
             document.getElementById('page').style.background = prevItem();
         };
-
-document.getElementById('next').onclick =
-    function() {
-        document.getElementById('page').style.background = nextItem();
-    };
+    document.getElementById('next').onclick =
+        function() {
+            document.getElementById('page').style.background = nextItem();
+        };
