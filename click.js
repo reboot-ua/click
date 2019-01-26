@@ -38,3 +38,5 @@ function nextItem () {
         function() {
             document.getElementById('page').style.background = nextItem();
         };
+
+
