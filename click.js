@@ -1,11 +1,12 @@
+
 let NewArr = [];
 let i = 0;
-
 function prevItem() {
     if (i <= 0) {
         i = NewArr.length
     }
     i = i - 1;
+    document.getElementById('next').disabled = false;
     return NewArr[i];
 }
 function random_bg_color() {
@@ -20,8 +21,6 @@ function random_bg_color() {
     i = i + 1;
     document.getElementById('back').disabled = false;
     return NewArr[i];
-
-
 }
 function nextItem () {
     i = i + 1;
@@ -38,4 +37,3 @@ document.getElementById('next').onclick =
     function() {
         document.getElementById('page').style.background = nextItem();
     };
-document.getElementById('back').disabled = false;
