@@ -11,10 +11,16 @@ function random_bg_color() {
     console.log(NewArr);
     i = i + 1;
     document.getElementById('back').disabled = false;
-
     NewArr.splice(i, NewArr.length);
-console.log(NewArr);
-    return NewArr[i];
+    console.log(NewArr);
+    let sameArr = NewArr.filter(function (el) {
+        if (sameArr.indexOf(el) === -1) {
+            sameArr.push(el);
+            return true;
+        }
+        return false;
+    });
+return NewArr[i];
 }
 function prevItem() {
     if (i <= 0) {
