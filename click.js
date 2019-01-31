@@ -13,14 +13,25 @@ function random_bg_color() {
     document.getElementById('back').disabled = false;
     NewArr.splice(i, NewArr.length);
     console.log(NewArr);
-    let sameArr = NewArr.filter(function (el) {
+
+    let sameArr = [];
+    let arr = NewArr.filter(function (el) {
         if (sameArr.indexOf(el) === -1) {
             sameArr.push(el);
             return true;
         }
         return false;
     });
+console.log(arr);
+
 return NewArr[i];
+}
+function add_new_color() {
+    NewArr.push(document.getElementById('box').value);
+    document.body.style.background = document.getElementById('box').value;
+    document.getElementById('back').disabled = false;
+    console.log(NewArr);
+    return false;
 }
 function prevItem() {
     if (i <= 0) {
