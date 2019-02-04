@@ -5,34 +5,23 @@ function random_bg_color() {
     let y = Math.floor(Math.random() * 256);
     let z = Math.floor(Math.random() * 256);
     let bgColor = "rgb(" + x + "," + y + "," + z + ")";
-    console.log(bgColor);
-    document.body.style.background = bgColor;
-    NewArr.push(bgColor);
-    console.log(NewArr);
     i = i + 1;
     document.getElementById('back').disabled = false;
     NewArr.splice(i, NewArr.length);
-    console.log(NewArr);
-
-    let sameArr = [];
-    let arr = NewArr.filter(function (el) {
-        if (sameArr.indexOf(el) === -1) {
-            sameArr.push(el);
-            return true;
-        }
-        return false;
-    });
-console.log(arr);
-
-return NewArr[i];
-}
-function add_new_color() {
-    NewArr.push(document.getElementById('box').value);
-    document.body.style.background = document.getElementById('box').value;
-    document.getElementById('back').disabled = false;
-    console.log(NewArr);
+    if (!NewArr.includes(bgColor)) {
+        document.body.style.background = bgColor;
+        NewArr.push(bgColor);
+    }
     return false;
 }
+function add_new_color() {
+    if (!NewArr.includes(document.getElementById('box').value)) {
+        NewArr.push(document.getElementById('box').value);
+        document.body.style.background = document.getElementById('box').value;
+        document.getElementById('back').disabled = false;
+    } return false;
+}
+
 function prevItem() {
     if (i <= 0) {
         i = NewArr.length
@@ -57,3 +46,11 @@ function nextItem () {
         };
 
 
+    //checkbox
+
+function checkCopy() {
+    if (document.getElementById('check').checked) {
+
+    }
+}
+console.log(checkCopy());
