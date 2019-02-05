@@ -8,11 +8,24 @@ function random_bg_color() {
     i = i + 1;
     document.getElementById('back').disabled = false;
     NewArr.splice(i, NewArr.length);
-    if (!NewArr.includes(bgColor)) {
-        document.body.style.background = bgColor;
-        NewArr.push(bgColor);
+        if (!NewArr.includes(bgColor)) {
+            document.body.style.background = bgColor;
+            NewArr.push(bgColor);
+        }
+console.log(NewArr);
+    if (document.getElementById('check').checked) {
+        if (NewArr.indexOf( bgColor=== -1)) {
+            document.body.style.background = bgColor;
+            NewArr.push(bgColor);
+        }else {
+            NewArr.splice(i, NewArr.length);
+            NewArr.push(bgColor);
+        }
     }
-    return false;
+    console.log(NewArr.splice());
+        console.log(NewArr);
+return false;
+
 }
 function add_new_color() {
     if (!NewArr.includes(document.getElementById('box').value)) {
@@ -21,7 +34,6 @@ function add_new_color() {
         document.getElementById('back').disabled = false;
     } return false;
 }
-
 function prevItem() {
     if (i <= 0) {
         i = NewArr.length
@@ -46,11 +58,4 @@ function nextItem () {
         };
 
 
-    //checkbox
 
-function checkCopy() {
-    if (document.getElementById('check').checked) {
-
-    }
-}
-console.log(checkCopy());
