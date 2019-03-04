@@ -10,18 +10,25 @@
 <div>
 
     <button id="change" class = 'center'>click</button>
-    <button id="back" disabled>Previous</button>
-    <button id="next" disabled>Next</button>
     <form onsubmit="return add_new_color()">
         <p>Please insert the Color Number</p>
         <input  class = "input" type="text"
-                placeholder="rgb(111,111,111)"  id="box" />
+        placeholder="rgb(111,111,111)"  id="box" />
         <input type="submit" value="Submit">
         <p>CheckBox</p>
         <input type="checkbox" id="check" /> Checked new Color
     </form>
 </div>
+<footer>
+    <button id="back" disabled>Previous</button>
 
+    <div id ="paginator">
+        <span id = "setColor"></span>
+    </div>
+
+    <button id="next" disabled>Next</button>
+
+</footer>
 <script src="click.js"></script>
 </body>
 

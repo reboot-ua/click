@@ -22,10 +22,21 @@ console.log(NewArr);
             NewArr.push(bgColor);
         }
     }
-    console.log(NewArr.splice());
-        console.log(NewArr);
-return false;
+    function pagination (value, index){
+        const pageButton = document.createElement('span');
+        pageButton.textContent = index+1 + ' ';
+        pageButton.onclick = function (){
+            document.getElementById('page').style.background = NewArr[index];
+            document.getElementById('back').disabled = false;
+            document.getElementById('next').disabled = false;
 
+        };
+        document.getElementById('paginator').appendChild(pageButton)
+    }
+    document.getElementById('paginator').textContent = '';
+        NewArr.forEach(pagination);
+
+    return false;
 }
 function add_new_color() {
     if (!NewArr.includes(document.getElementById('box').value)) {
@@ -40,13 +51,25 @@ function prevItem() {
         }
     i = i - 1;
     document.getElementById('next').disabled = false;
+    if (i <= 0) {
+        document.getElementById('back').disabled = true;
+
+    }
     return NewArr[i];
 }
 function nextItem () {
     i = i + 1;
-    i = i % NewArr.length;
+    i = i % NewArr.length ;
     return NewArr[i];
+    if(i=NewArr.length-1) {
+        document.getElementById('next').disabled = true;
+
+    }
 }
+
+
+
+
     document.getElementById('change').onclick = random_bg_color;
     document.getElementById('back').onclick =
         function() {
@@ -56,6 +79,8 @@ function nextItem () {
         function() {
             document.getElementById('page').style.background = nextItem();
         };
+//paginator
+
 
 
 
